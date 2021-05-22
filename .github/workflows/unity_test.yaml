@@ -26,4 +26,4 @@ jobs:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
           githubToken: ${{ secrets.GITHUB_TOKEN }} 
-          testMode: EditMode
+          testMode: editmode
