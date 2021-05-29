@@ -21,7 +21,7 @@ public class SampleClassTests
     [Test]
     public void SampleClassTests3()
     {
-        Assert.Pass();
+        Assert.Fail();
     }
 
 
