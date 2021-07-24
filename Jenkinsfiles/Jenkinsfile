@@ -1,6 +1,9 @@
 pipeline {
   agent {
-    docker { image 'unityci/editor:ubuntu-2020.3.9f1-android-0' }
+    docker { 
+      image 'unityci/editor:ubuntu-2020.3.9f1-android-0' 
+      reuseNode true
+    }
   }
   stages {
     stage('Unit Test') {
@@ -8,6 +11,11 @@ pipeline {
         sh 'unity-editor -runTests -batchmode -projectPath $WORKSPACE -testResults $WORKSPACE\\results.xml '
       }
     }
-
+    
+    stage('Script Build Test') {
+      steps {
+        sh 'unity-editor -runTests -batchmode -projectPath $WORKSPACE -testResults $WORKSPACE\\results.xml '
+      }
+    }
   }
 }
