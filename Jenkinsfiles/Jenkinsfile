@@ -4,8 +4,6 @@ pipeline {
     stage('Checkout'){
       steps {
         checkout scm
-        
-        //([$class: 'GitSCM', userRemoteConfigs: [[credentialsId: 'github-login', url: 'https://github.com/sam-mckay/Unity-Github-Actions-Testing.git']]])
       }
     }
     stage('Unit Test') {
