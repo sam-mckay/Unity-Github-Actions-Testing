@@ -1,15 +1,22 @@
 pipeline {
   agent any
   stages {
+    stage('Checkout'){
+      steps {
+        checkout scm
+        
+        //([$class: 'GitSCM', userRemoteConfigs: [[credentialsId: 'github-login', url: 'https://github.com/sam-mckay/Unity-Github-Actions-Testing.git']]])
+      }
+    }
     stage('Unit Test') {
       steps {
-        sh '"C:\\Program Files\\Unity\\Hub\\Editor\\2020.3.9f1\\Editor\\Unity.exe" -runTests -batchmode -projectPath $WORKSPACE -testResults $WORKSPACE\\results.xml '
+        bat '"C:\\Program Files\\Unity\\Hub\\Editor\\2020.3.9f1\\Editor\\Unity.exe" -runTests -batchmode -projectPath $WORKSPACE -testResults $WORKSPACE\\results.xml '
       }
     }
     
     stage('Script Build Test') {
       steps {
-        sh '"C:\\Program Files\\Unity\\Hub\\Editor\\2020.3.9f1\\Editor\\Unity.exe" -runTests -batchmode -projectPath $WORKSPACE -testResults $WORKSPACE\\results.xml '
+        bat '"C:\\Program Files\\Unity\\Hub\\Editor\\2020.3.9f1\\Editor\\Unity.exe" -runTests -batchmode -projectPath $WORKSPACE -testResults $WORKSPACE\\results.xml '
       }
     }
   }
