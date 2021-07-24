@@ -16,7 +16,7 @@ pipeline {
     
     stage('Script Build Test') {
       steps {
-        bat "\"C:\\Program Files\\Unity\\Hub\\Editor\\2020.3.9f1\\Editor\\Unity.exe\" -executeMethod ScriptBuild.Build -batchmode -testResults $WORKSPACE\\results.xml -logfile -"
+        bat "\"C:\\Program Files\\Unity\\Hub\\Editor\\2020.3.9f1\\Editor\\Unity.exe\" -executeMethod ScriptBuild.Build -batchmode -logfile -"
       }
     }
   }
