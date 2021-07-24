@@ -10,13 +10,13 @@ pipeline {
     }
     stage('Unit Test') {
       steps {
-        bat "\"C:\\Program Files\\Unity\\Hub\\Editor\\2020.3.9f1\\Editor\\Unity.exe\" -runTests -batchmode -testResults $WORKSPACE\\results.xml"
+        bat "\"C:\\Program Files\\Unity\\Hub\\Editor\\2020.3.9f1\\Editor\\Unity.exe\" -runTests -batchmode -testResults $WORKSPACE\\results.xml -logfile -"
       }
     }
     
     stage('Script Build Test') {
       steps {
-        bat "\"C:\\Program Files\\Unity\\Hub\\Editor\\2020.3.9f1\\Editor\\Unity.exe\" -executeMethod ScriptBuild.Build -batchmode -testResults $WORKSPACE\\results.xml "
+        bat "\"C:\\Program Files\\Unity\\Hub\\Editor\\2020.3.9f1\\Editor\\Unity.exe\" -executeMethod ScriptBuild.Build -batchmode -testResults $WORKSPACE\\results.xml -logfile -"
       }
     }
   }
