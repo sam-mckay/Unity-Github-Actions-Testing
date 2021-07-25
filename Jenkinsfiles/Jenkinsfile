@@ -1,5 +1,3 @@
-def stagePrefix = JOB_BASE_NAME.split('-')[2];
-
 pipeline {
   agent {
     node { 
@@ -8,24 +6,19 @@ pipeline {
     }
   }
   stages {
-    stage("$stagePrefix Checkout"){
+    stage("Checkout"){
       steps {
         checkout scm
       }
     }
-    stage("$stagePrefix Unit Test") {
+    stage("Unit Test") {
       steps {
         bat "\"C:\\Program Files\\Unity\\Hub\\Editor\\2020.3.9f1\\Editor\\Unity.exe\" -runTests -batchmode -testResults $WORKSPACE\\results.xml -logfile - -quit"
       }
     }
-    stage("$stagePrefix Other Test") {
+    stage("Other Test") {
       steps {
         echo "Hello World!"
-      }
-    }
-    stage("$stagePrefix Random Failing Test") {
-      steps {
-        error 'Fail'
       }
     }
   }
