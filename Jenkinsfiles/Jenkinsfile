@@ -2,7 +2,7 @@ pipeline {
   agent {
     node { 
       label 'win'
-      customWorkspace 'PR_Checks'
+      customWorkspace 'workspace/PR_Checks'
     }
   }
   stages {
