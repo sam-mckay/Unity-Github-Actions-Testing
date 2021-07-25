@@ -6,23 +6,25 @@ pipeline {
     }
   }
 
+  def stagePrefix = JOB_BASE_NAME.split('-')[2];
+
   stages {
-    stage('Checkout'){
+    stage("$stagePrefix Checkout"){
       steps {
         checkout scm
       }
     }
-    stage('Unit Test') {
+    stage("$stagePrefix Unit Test") {
       steps {
         bat "\"C:\\Program Files\\Unity\\Hub\\Editor\\2020.3.9f1\\Editor\\Unity.exe\" -runTests -batchmode -testResults $WORKSPACE\\results.xml -logfile - -quit"
       }
     }
-    stage('Other Test') {
+    stage("$stagePrefix Other Test") {
       steps {
         echo "Hello World!"
       }
     }
-    stage('Random Failing Test') {
+    stage("$stagePrefix Random Failing Test") {
       steps {
         error 'Fail'
       }
