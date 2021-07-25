@@ -1,17 +1,24 @@
 pipeline {
   agent {
-    label 'win'
+    node { 
+      label 'win'
+      customWorkspace 'PR_Checks'
+    }
   }
-
   stages {
-    stage('Checkout'){
+    stage("Checkout"){
       steps {
         checkout scm
       }
     }
-    stage('Unit Test') {
+    stage("Unit Test") {
       steps {
         bat "\"C:\\Program Files\\Unity\\Hub\\Editor\\2020.3.9f1\\Editor\\Unity.exe\" -runTests -batchmode -testResults $WORKSPACE\\results.xml -logfile - -quit"
+      }
+    }
+    stage("Other Test") {
+      steps {
+        echo "Hello World!"
       }
     }
   }
