@@ -1,3 +1,5 @@
+def stagePrefix = JOB_BASE_NAME.split('-')[2];
+
 pipeline {
   agent {
     node { 
@@ -5,9 +7,6 @@ pipeline {
       customWorkspace 'PR_Checks'
     }
   }
-
-  def stagePrefix = JOB_BASE_NAME.split('-')[2];
-
   stages {
     stage("$stagePrefix Checkout"){
       steps {
