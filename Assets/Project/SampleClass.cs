@@ -4,9 +4,8 @@ using UnityEngine;
 
 public static class SampleClass 
 {
-    
-    public static void Method1()
-    {
+    //tst csharp lint
+    public static void Method1()    {
 
     }
 }
