@@ -10,3 +10,4 @@ ENABLE_LINTERS: CSHARP_DOTNET_FORMAT,GROOVY_NPM_GROOVY_LINT,JSON_JSONLINT,COPYPA
   #- SPELL # Comment to disable checks of spelling mistakes # - SPELL # Uncomment to disable checks of spelling mistakes
 SHOW_ELAPSED_TIME: true
 FILEIO_REPORTER: false
+CSHARP_DOTNET_FORMAT_ARGUMENTS: --report "$GITHUB_WORKSPACE"

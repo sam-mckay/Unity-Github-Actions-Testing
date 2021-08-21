@@ -59,7 +59,7 @@ jobs:
             mega-linter.log
 
       - run:            
-            ls -la
+            ls -la report
 
       # Create pull request if applicable (for now works only on PR from same repository, not from forks)
       - name: Create Pull Request with applied fixes
