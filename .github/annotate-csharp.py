@@ -41,6 +41,10 @@ with open('report/linters_logs/ERROR-CSHARP_DOTNET_FORMAT.log',encoding="utf8") 
         message = split_line[2]
 
         severity = split_line[1].strip().split(" ")[0]
+        
+        if(severity == "error"):
+            severity = "failure"
+        
 
         annotations.append({"title":"CSharp Linter","message":message,"file":path,"line":line_start_end,"annotation_level":severity})
 
