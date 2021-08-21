@@ -4,10 +4,14 @@ using UnityEngine;
 
 public static class SampleClass 
 {
-    
+    //BadCmmet
+
+     
+        
+        
     public static void Method1()
     {
 
-    }
+    }  
 }
  
