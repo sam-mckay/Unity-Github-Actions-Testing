@@ -4,8 +4,7 @@
 name: Mega-Linter
 
 on:
-  # Trigger mega-linter at every push. Action will also be visible from Pull Requests to master
-  push: # Comment this line to trigger action only on pull-requests (not recommended if you don't pay for GH Actions)
+  # Trigger mega-linter at every push. Action will also be visible from Pull Requests to master  
   pull_request:
     branches: [master, main]
 
@@ -58,6 +57,9 @@ jobs:
           path: |
             report
             mega-linter.log
+
+      - run:
+            sh ls -la
 
       # Create pull request if applicable (for now works only on PR from same repository, not from forks)
       - name: Create Pull Request with applied fixes
