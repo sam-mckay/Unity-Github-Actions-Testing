@@ -70,7 +70,7 @@ jobs:
           py .github/annotate-csharp.py
 
       - name: Annotate
-        uses: Attest/annotations-action@v0.1.0
+        uses: Attest/annotations-action@v1.0.3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           input: './annotations.json'
