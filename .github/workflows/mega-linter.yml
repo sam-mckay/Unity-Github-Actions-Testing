@@ -61,6 +61,20 @@ jobs:
       - run:            
             ls -la report
 
+      - name: Set up Python 3.6
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.6
+        run:
+          py .github/annotate-csharp.py
+
+      - name: Annotate
+        uses: Attest/annotations-action@v0.1.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          input: './annotations.json'
+          title: 'Annotate Files'
+
       # Create pull request if applicable (for now works only on PR from same repository, not from forks)
       - name: Create Pull Request with applied fixes
         id: cpr
