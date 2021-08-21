@@ -1,0 +1,56 @@
+[
+  {
+    "DocumentId": {
+      "ProjectId": {
+        "Id": "2b208dba-276b-4b08-89b2-3d8a0d742d7d"
+      },
+      "Id": "147c8abc-87c9-482d-8734-e9f34e7eeed7"
+    },
+    "FileName": "C:\\GIT\\unity_github_actions\\Assets\\Project\\SampleClass.cs",
+    "FilePath": "C:\\GIT\\unity_github_actions\\Assets\\Project\\SampleClass.cs",
+    "FileChanges": [
+      {
+        "LineNumber": 5,
+        "CharNumber": 32,
+        "DiagnosticId": "WHITESPACE",
+        "FormatDescription": "Fix whitespace formatting. Replace 3 characters with \u0027\\r\\n\u0027."
+      },
+      {
+        "LineNumber": 7,
+        "CharNumber": 1,
+        "DiagnosticId": "WHITESPACE",
+        "FormatDescription": "Fix whitespace formatting. Replace 10 characters with \u0027\\r\\n\\s\\s\\s\\s\u0027."
+      },
+      {
+        "LineNumber": 13,
+        "CharNumber": 1,
+        "DiagnosticId": "WHITESPACE",
+        "FormatDescription": "Fix whitespace formatting. Delete 1 characters."
+      }
+    ]
+  },
+  {
+    "DocumentId": {
+      "ProjectId": {
+        "Id": "2b208dba-276b-4b08-89b2-3d8a0d742d7d"
+      },
+      "Id": "c54430df-e89d-4604-9050-b99390329c02"
+    },
+    "FileName": "C:\\GIT\\unity_github_actions\\Assets\\Project.Tests\\SampleClassTests.cs",
+    "FilePath": "C:\\GIT\\unity_github_actions\\Assets\\Project.Tests\\SampleClassTests.cs",
+    "FileChanges": [
+      {
+        "LineNumber": 17,
+        "CharNumber": 6,
+        "DiagnosticId": "WHITESPACE",
+        "FormatDescription": "Fix whitespace formatting. Replace 11 characters with \u0027\\r\\n\\s\\s\\s\\s\\s\\s\\s\\s\u0027."
+      },
+      {
+        "LineNumber": 20,
+        "CharNumber": 1,
+        "DiagnosticId": "WHITESPACE",
+        "FormatDescription": "Fix whitespace formatting. Replace 14 characters with \u0027\\r\\n\\s\\s\\s\\s\u0027."
+      }
+    ]
+  }
+]
