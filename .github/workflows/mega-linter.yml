@@ -72,6 +72,9 @@ jobs:
       - run:
           python .github/annotate-csharp.py
 
+      - run:            
+          ls -la 
+          
       - name: Annotate
         uses: yuzutech/annotations-action@v0.3.0
         with:
