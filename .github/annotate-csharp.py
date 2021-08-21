@@ -22,7 +22,7 @@ def getPath(split_line, line_start_end, column_start_end):
     return path
 
 
-with open('report/linter_logs/ERROR-CSHARP_DOTNET_FORMAT.log',encoding="utf8") as file:
+with open('report/linters_logs/ERROR-CSHARP_DOTNET_FORMAT.log',encoding="utf8") as file:
     for line in file:
         
         split_line = line.split(':')
