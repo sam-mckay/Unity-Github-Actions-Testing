@@ -67,7 +67,7 @@ jobs:
           python-version: 3.6
       
       - run:
-          py .github/annotate-csharp.py
+          python .github/annotate-csharp.py
 
       - name: Annotate
         uses: Attest/annotations-action@v1.0.3
