@@ -74,6 +74,8 @@ jobs:
 
       - run:            
           ls -la 
+      - run:            
+          cat annotations.json
           
       - name: Annotate
         uses: yuzutech/annotations-action@v0.3.0

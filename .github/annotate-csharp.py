@@ -46,7 +46,7 @@ with open('report/linters_logs/ERROR-CSHARP_DOTNET_FORMAT.log',encoding="utf8") 
             severity = "failure"
         
 
-        annotations.append({"title":"CSharp Linter","message":message,"file":path,"line":line_start_end,"annotation_level":severity})
+        annotations.append({"title":"CSharp Linter","message":message,"file":path,"line": int(line_start_end),"annotation_level":severity})
 
 
 #Dump Json
