@@ -15,50 +15,56 @@ pipeline {
       steps {
         bat "\"C:\\Program Files\\Unity\\Hub\\Editor\\2020.3.9f1\\Editor\\Unity.exe\" -runTests -batchmode -testResults $WORKSPACE\\results.xml -logfile - -quit"
 
-        script{
-          def foundCompilerErrors = false;
-          def usefulLogs = []
-          def logLines = currentBuild.rawBuild.getLog(100)
-          for(i =0; i < logLines.size(); i++)
-          {
-            def line = logLines[i];
-            if(line.contains("EndCompilerOutput"))
-            {
-              //Found end of compile error block
-              break;
+      }
+      post {
+        failure {
+          steps{
+            script{
+              def foundCompilerErrors = false;
+              def usefulLogs = []
+              def logLines = currentBuild.rawBuild.getLog(100)
+              for(i =0; i < logLines.size(); i++)
+              {
+                def line = logLines[i];
+                if(line.contains("EndCompilerOutput"))
+                {
+                  //Found end of compile error block
+                  break;
+                }
+
+                if(foundCompilerErrors == true)
+                {
+                  usefulLogs.add(line);
+                }
+
+                if(line.contains("CompilerOutput"))
+                {
+                  //Found compile error block
+                  foundCompilerErrors= false
+                }
+              }
+
+              def errors = []
+              //Skip first two lines it's always c# version / copyright
+              for(i = 2; i < usefulLogs.size(); i++)
+              {
+                def line = usefulLogs[i];
+                
+                if (line.split(":").size() == 2)
+                {
+                  errors.add(line)
+                }
+
+              }
+
+              for(i = 0; i < errors.size(); i++)
+              {
+                def error = errors[i];
+                
+                echo error
+
+              }
             }
-
-            if(foundCompilerErrors == true)
-            {
-              usefulLogs.add(line);
-            }
-
-            if(line.contains("CompilerOutput"))
-            {
-              //Found compile error block
-              foundCompilerErrors= false
-            }
-          }
-
-          def errors = []
-          //Skip first two lines it's always c# version / copyright
-          for(i = 2; i < usefulLogs.size(); i++)
-          {
-            def line = usefulLogs[i];
-            
-            if (line.split(":").size() == 2)
-            {
-              errors.add(line)
-            }
-
-          }
-
-          for(i = 0; i < errors.size(); i++)
-          {
-            def error = errors[i];
-            
-            echo error
-
           }
         }
       }
