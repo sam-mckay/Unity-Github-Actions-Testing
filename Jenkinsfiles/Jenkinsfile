@@ -17,55 +17,54 @@ pipeline {
 
       }
       post {
-        failure {
-          steps{
-            script{
-              def foundCompilerErrors = false;
-              def usefulLogs = []
-              def logLines = currentBuild.rawBuild.getLog(100)
-              for(i =0; i < logLines.size(); i++)
+        failure {         
+          script{
+            def foundCompilerErrors = false;
+            def usefulLogs = []
+            def logLines = currentBuild.rawBuild.getLog(100)
+            for(i =0; i < logLines.size(); i++)
+            {
+              def line = logLines[i];
+              if(line.contains("EndCompilerOutput"))
               {
-                def line = logLines[i];
-                if(line.contains("EndCompilerOutput"))
-                {
-                  //Found end of compile error block
-                  break;
-                }
-
-                if(foundCompilerErrors == true)
-                {
-                  usefulLogs.add(line);
-                }
-
-                if(line.contains("CompilerOutput"))
-                {
-                  //Found compile error block
-                  foundCompilerErrors= false
-                }
+                //Found end of compile error block
+                break;
               }
 
-              def errors = []
-              //Skip first two lines it's always c# version / copyright
-              for(i = 2; i < usefulLogs.size(); i++)
+              if(foundCompilerErrors == true)
               {
-                def line = usefulLogs[i];
-                
-                if (line.split(":").size() == 2)
-                {
-                  errors.add(line)
-                }
-
+                usefulLogs.add(line);
               }
 
-              for(i = 0; i < errors.size(); i++)
+              if(line.contains("CompilerOutput"))
               {
-                def error = errors[i];
-                
-                echo error
-
+                //Found compile error block
+                foundCompilerErrors= false
               }
             }
+
+            def errors = []
+            //Skip first two lines it's always c# version / copyright
+            for(i = 2; i < usefulLogs.size(); i++)
+            {
+              def line = usefulLogs[i];
+              
+              if (line.split(":").size() == 2)
+              {
+                errors.add(line)
+              }
+
+            }
+
+            for(i = 0; i < errors.size(); i++)
+            {
+              def error = errors[i];
+              
+              echo error
+
+            }
           }
+        
         }
       }
     }
