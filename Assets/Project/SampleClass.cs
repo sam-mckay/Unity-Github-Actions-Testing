@@ -9,4 +9,4 @@ public static class SampleClass
     {
 
     }
-} 
+}
