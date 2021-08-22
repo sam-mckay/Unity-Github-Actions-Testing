@@ -47,7 +47,9 @@ pipeline {
               }
             }
 
-            echo "UsefulLogs size" + usefulLogs.size();
+            echo "UsefulLogs size"
+            println(usefulLogs.size());
+
             def errors = []
             //Skip first two lines it's always c# version / copyright
             for(i = 2; i < usefulLogs.size(); i++)
@@ -61,7 +63,8 @@ pipeline {
 
             }
 
-            echo "errors size" + errors.size();
+            echo "errors size";
+            println(errors.size());
             for(i = 0; i < errors.size(); i++)
             {
               def error = errors[i];
