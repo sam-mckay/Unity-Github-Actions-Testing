@@ -24,12 +24,13 @@ pipeline {
             def foundCompilerErrors = false;
             def usefulLogs = []
             def logLines = currentBuild.rawBuild.getLog(100)
-            for(i =0; i < logLines.size(); i++)
+            for(i = 0; i < logLines.size(); i++)
             {
               def line = logLines[i];
               if(line.contains("EndCompilerOutput"))
               {
                 //Found end of compile error block
+                echo "Found compiler output end"
                 break;
               }
 
@@ -42,9 +43,11 @@ pipeline {
               {
                 //Found compile error block
                 foundCompilerErrors= false
+                echo "Found compiler output"
               }
             }
 
+            echo "UsefulLogs size" + usefulLogs.size();
             def errors = []
             //Skip first two lines it's always c# version / copyright
             for(i = 2; i < usefulLogs.size(); i++)
@@ -58,6 +61,7 @@ pipeline {
 
             }
 
+            echo "errors size" + errors.size();
             for(i = 0; i < errors.size(); i++)
             {
               def error = errors[i];
