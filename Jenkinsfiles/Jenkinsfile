@@ -19,6 +19,8 @@ pipeline {
       post {
         failure {         
           script{
+
+            echo "Running"
             def foundCompilerErrors = false;
             def usefulLogs = []
             def logLines = currentBuild.rawBuild.getLog(100)
