@@ -36,13 +36,14 @@ pipeline {
 
               if(foundCompilerErrors == true)
               {
+                echo "Found compiler output end"
                 usefulLogs.add(line);
               }
 
               if(line.contains("CompilerOutput"))
               {
                 //Found compile error block
-                foundCompilerErrors= false
+                foundCompilerErrors = true
                 echo "Found compiler output"
               }
             }
