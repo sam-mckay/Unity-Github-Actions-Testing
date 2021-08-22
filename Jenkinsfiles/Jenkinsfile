@@ -19,8 +19,6 @@ pipeline {
       post {
         failure {         
           script{
-
-            echo "Running"
             def foundCompilerErrors = false;
             def usefulLogs = []
             def logLines = currentBuild.rawBuild.getLog(100)
@@ -30,7 +28,6 @@ pipeline {
               if(line.contains("EndCompilerOutput"))
               {
                 //Found end of compile error block
-                echo "Found compiler output end"
                 break;
               }
 
@@ -43,19 +40,14 @@ pipeline {
               {
                 //Found compile error block
                 foundCompilerErrors = true
-                echo "Found compiler output"
               }
             }
-
-            echo "UsefulLogs size"
-            println(usefulLogs.size());
 
             def errors = []
             //Skip first two lines it's always c# version / copyright
             for(i = 2; i < usefulLogs.size(); i++)
             {
               def line = usefulLogs[i];
-              echo "Checkling line : $line"
               if (line.split(":").size() == 3)
               {
                 errors.add(line)
@@ -63,8 +55,7 @@ pipeline {
 
             }
 
-            echo "errors size";
-            println(errors.size());
+            echo "Compiler Errors";
             for(i = 0; i < errors.size(); i++)
             {
               def error = errors[i];
