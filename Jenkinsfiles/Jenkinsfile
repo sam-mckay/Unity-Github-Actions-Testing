@@ -56,7 +56,7 @@ pipeline {
             {
               def line = usefulLogs[i];
               echo "Checkling line : $line"
-              if (line.split(":").size() == 2)
+              if (line.split(":").size() == 3)
               {
                 errors.add(line)
               }
