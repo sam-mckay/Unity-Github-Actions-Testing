@@ -36,7 +36,6 @@ pipeline {
 
               if(foundCompilerErrors == true)
               {
-                echo "Found compiler output end"
                 usefulLogs.add(line);
               }
 
@@ -56,7 +55,7 @@ pipeline {
             for(i = 2; i < usefulLogs.size(); i++)
             {
               def line = usefulLogs[i];
-              
+              echo "Checkling line : $line"
               if (line.split(":").size() == 2)
               {
                 errors.add(line)
