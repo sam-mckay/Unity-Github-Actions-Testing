@@ -15,8 +15,12 @@ pipeline {
       steps {
         bat "\"C:\\Program Files\\Unity\\Hub\\Editor\\2020.3.9f1\\Editor\\Unity.exe\" -runTests -batchmode -testResults $WORKSPACE\\results.xml -logfile - -quit"
 
+        script{
+          pullRequest.comment("Test")
+
+        }
       }
-      post {
+      post {x
         failure {         
           script{
             def foundCompilerErrors = false;

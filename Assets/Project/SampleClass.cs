@@ -7,6 +7,6 @@ public static class SampleClass
     //tst csharp lint
     public static void Method1()
     {
-        InvalidCodeTest
+        
     }
 }
