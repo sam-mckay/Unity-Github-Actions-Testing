@@ -8,6 +8,8 @@ public static class SampleClass
     public static void Method1()
     {
 
+
+
     }
 }
  
