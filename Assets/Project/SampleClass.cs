@@ -7,7 +7,7 @@ public static class SampleClass
     
     public static void Method1()
     {
-
+        //bdly spelt comment
     }
 }
  
