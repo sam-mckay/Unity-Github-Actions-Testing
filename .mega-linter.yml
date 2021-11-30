@@ -1,0 +1,12 @@
+# Configuration file for Mega-Linter
+# See all available variables at https://nvuillam.github.io/mega-linter/configuration/ and in linters documentation
+
+APPLY_FIXES: none # all, none, or list of linter keys
+DEFAULT_BRANCH: main # Usually master or main
+ENABLE: C#,GROOVY # If you use ENABLE variable, all other languages/formats/tooling-formats will be disabled by default
+ENABLE_LINTERS: CSHARP_DOTNET_FORMAT,GROOVY_NPM_GROOVY_LINT,JSON_JSONLINT,COPYPASTE_JSCPD,SPELL_CSPELL #,YAML_PRETTIER # Disabled prettier for now
+#DISABLE:
+  #- COPYPASTE # Comment to disable checks of abusive copy-pastes
+  #- SPELL # Comment to disable checks of spelling mistakes # - SPELL # Uncomment to disable checks of spelling mistakes
+SHOW_ELAPSED_TIME: true
+FILEIO_REPORTER: false

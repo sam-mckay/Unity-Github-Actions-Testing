@@ -1,0 +1,17 @@
+{
+  "version": "0.1",
+  "language": "en",
+  "ignorePaths": [
+    "**/node_modules/**",
+    "**/vscode-extension/**",
+    "**/.git/**",
+    ".vscode",
+    "package-lock.json",
+    "report",
+    ".github",
+    ".jscpd.json",
+    ".cspell.json",
+    ".mega-linter.yml"
+  ],
+  "words": []
+}
